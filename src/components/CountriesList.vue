@@ -1,4 +1,7 @@
 <script setup>
+	const props = defineProps({
+		countries: Object,
+	});
 </script>
 
 <template>
