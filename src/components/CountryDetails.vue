@@ -42,7 +42,7 @@
 
 <template>
 	<img
-		src="https://restcountries.eu/data/fra.svg"
+		:src="`https://flagcdn.com/w320/${alpha2Code.toLowerCase()}.png`"
 		alt="country flag"
 		style="width: 300px"
 	/>
