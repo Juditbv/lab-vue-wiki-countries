@@ -30,7 +30,9 @@
 			</router-link>
 		</div>
 	</div>
-	<RouterView />
+	<div class="col-7">
+		<RouterView />
+	</div>
 </template>
 
 <style scoped>

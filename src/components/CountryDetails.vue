@@ -41,40 +41,36 @@
 </script>
 
 <template>
-	<div class="col-7">
-		<img
-			src="https://restcountries.eu/data/fra.svg"
-			alt="country flag"
-			style="width: 300px"
-		/>
-		<h1>{{ name }}</h1>
-		<table class="table">
-			<thead></thead>
-			<tbody>
-				<tr>
-					<td style="width: 30%">Capital</td>
-					<td>{{ capital }}</td>
-				</tr>
-				<tr>
-					<td>Area</td>
-					<td>
-						{{ area }} km
-						<sup>2</sup>
-					</td>
-				</tr>
-				<tr>
-					<td>Borders</td>
-					<td>
-						<ul>
-							<li v-for="border in borders" :key="border">
-								<router-link :to="'/details/' + country.alpha3Code">{{
-									border
-								}}</router-link>
-							</li>
-						</ul>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+	<img
+		src="https://restcountries.eu/data/fra.svg"
+		alt="country flag"
+		style="width: 300px"
+	/>
+	<h1>{{ name }}</h1>
+	<table class="table">
+		<thead></thead>
+		<tbody>
+			<tr>
+				<td style="width: 30%">Capital</td>
+				<td>{{ capital }}</td>
+			</tr>
+			<tr>
+				<td>Area</td>
+				<td>
+					{{ area }} km
+					<sup>2</sup>
+				</td>
+			</tr>
+			<tr>
+				<td>Borders</td>
+				<td>
+					<ul>
+						<li v-for="border in borders" :key="border">
+							<router-link :to="`/details/${border}`">{{ border }}</router-link>
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </template>
