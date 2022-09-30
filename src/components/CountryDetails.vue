@@ -22,7 +22,7 @@
 		area.value = finalResponse.area;
 		capital.value = finalResponse.capital[0];
 		borders.value = finalResponse.borders;
-		alpha2Code.value = finalResponse.alpha2Code;
+		alpha2Code.value = finalResponse.alpha2Code.toLowerCase();
 		alpha3Code.value = finalResponse.alpha3Code;
 	};
 	getCountry();
@@ -42,7 +42,7 @@
 
 <template>
 	<img
-		:src="`https://flagcdn.com/w320/${alpha2Code.toLowerCase()}.png`"
+		:src="`https://flagcdn.com/w320/${alpha2Code}.png`"
 		alt="country flag"
 		style="width: 300px"
 	/>
@@ -63,7 +63,8 @@
 			</tr>
 			<tr>
 				<td>Borders</td>
-				<td>
+				<td v-if="borders && borders.length === 0">There are no borders</td>
+				<td v-else>
 					<ul>
 						<li v-for="border in borders" :key="border">
 							<router-link :to="`/details/${border}`">{{ border }}</router-link>
