@@ -4,7 +4,7 @@
 <template>
 	<nav class="navbar navbar-dark bg-primary mb-3">
 		<div class="container">
-			<a class="navbar-brand" href="/">LAB - WikiCountries</a>
+			<router-link to="/" class="navbar-brand">LAB - WikiCountries</router-link>
 		</div>
 	</nav>
 </template>
