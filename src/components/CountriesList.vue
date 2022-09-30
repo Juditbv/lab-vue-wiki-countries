@@ -23,16 +23,14 @@
 				v-for="country in countries"
 				:key="country"
 				class="list-group-item list-group-item-action"
-				:to="'/details/' + country.alpha3Code"
+				:to="`/details/${country.alpha3Code}`"
 			>
 				<img :src="urlImg + country.alpha2Code.toLowerCase() + '.png'" />
 				<p>{{ country.name.common }}</p>
 			</router-link>
 		</div>
 	</div>
-	<div class="col-7">
-		<RouterView />
-	</div>
+	<RouterView />
 </template>
 
 <style scoped>
