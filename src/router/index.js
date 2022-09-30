@@ -28,6 +28,9 @@ const router = createRouter({
       ],
     },
   ],
+  scrollBehavior() {
+    document.getElementById("app").scrollIntoView();
+  },
 });
 
 export default router;
