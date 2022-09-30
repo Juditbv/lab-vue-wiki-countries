@@ -18,7 +18,7 @@ const router = createRouter({
         ),
       children: [
         {
-          path: "/details",
+          path: "/details/:alpha3Code",
           name: "details",
           component: () =>
             import(

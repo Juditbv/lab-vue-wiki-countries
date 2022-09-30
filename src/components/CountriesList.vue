@@ -1,7 +1,10 @@
 <script setup>
+	import { ref } from "vue";
 	const props = defineProps({
 		countries: Object,
 	});
+
+	const urlImg = ref("https://flagpedia.net/data/flags/icon/72x54/");
 </script>
 
 <template>
@@ -9,10 +12,16 @@
 		<div class="row">
 			<div class="col-5" style="max-height: 90vh; overflow: scroll">
 				<div class="list-group">
-					<a class="list-group-item list-group-item-action" href="/ABW">
-						<img src="https://flagpedia.net/data/flags/icon/72x54/aw.png" />
-						<p>Aruba</p>
-					</a>
+					<router-link
+						v-for="country in countries"
+						:key="country"
+						class="list-group-item list-group-item-action"
+						:to="'/details/' + country.alpha3Code"
+					>
+						<img :src="urlImg + country.alpha2Code.toLowerCase() + '.png'" />
+						<p>{{ country.name.common }}</p>
+					</router-link>
+					<!-- <a href="/ABW"> </a>
 					<a class="list-group-item list-group-item-action" href="/AFG">
 						<img src="https://flagpedia.net/data/flags/icon/72x54/af.png" />
 						<p>Afghanistan</p>
@@ -68,7 +77,7 @@
 					<a class="list-group-item list-group-item-action" href="/ZWE">
 						<img src="https://flagpedia.net/data/flags/icon/72x54/zw.png" />
 						<p>Zimbabwe</p>
-					</a>
+					</a> -->
 				</div>
 			</div>
 		</div>
