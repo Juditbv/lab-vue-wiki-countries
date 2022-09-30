@@ -45,6 +45,7 @@
 		:src="`https://flagcdn.com/w320/${alpha2Code}.png`"
 		alt="country flag"
 		style="width: 300px"
+		class="mb-4"
 	/>
 	<h1>{{ name }}</h1>
 	<table class="table">
