@@ -1,29 +1,19 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import CountriesList from "../components/CountriesList.vue";
+import CountryDetails from "../components/CountryDetails.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      name: "home",
-      component: HomeView,
-    },
-    {
-      path: "/list",
-      name: "list",
-      component: () =>
-        import(
-          /* webpackChunkName: 'list' */ "../components/CountriesList.vue"
-        ),
+      name: "Countries List",
+      component: CountriesList,
       children: [
         {
           path: "/details/:alpha3Code",
-          name: "details",
-          component: () =>
-            import(
-              /* webpackChunkName: 'details' */ "../components/CountryDetails.vue"
-            ),
+          name: "Country Details",
+          component: CountryDetails,
         },
       ],
     },

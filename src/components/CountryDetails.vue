@@ -1,17 +1,27 @@
 <script setup>
 	import { useRoute } from "vue-router";
+	import { ref } from "vue";
+
 	const route = useRoute();
-	const fetchCountry = async () => {
-		const response = await fetch(
-			`https://ih-countries-api.herokuapp.com/countries/${route.params.alpha3Code}`
-		);
-		const finalResponse = await response.json();
-	};
-	const country = fetchCountry();
+	const name = ref();
+	const area = ref();
+	const capital = ref();
+	const borders = ref();
+	const alpha2Code = ref();
+	const alpha3Code = ref();
+
+	// const country = ref(null);
+	// const fetchCountry = async () => {
+	// 	const response = await fetch(
+	// 		`https://ih-countries-api.herokuapp.com/countries/${route.params.alpha3Code}`
+	// 	);
+	// 	const finalResponse = await response.json();
+	// 	country.value = finalResponse;
+	// };
+	// fetchCountry();
 </script>
 
 <template>
-	{{ route.params.alpha3Code }}
 	<img
 		src="https://restcountries.eu/data/fra.svg"
 		alt="country flag"

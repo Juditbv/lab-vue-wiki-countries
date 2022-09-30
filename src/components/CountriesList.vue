@@ -1,9 +1,19 @@
 <script setup>
 	import { ref } from "vue";
-	const props = defineProps({
-		countries: Object,
-	});
 	const urlImg = ref("https://flagpedia.net/data/flags/icon/72x54/");
+
+	const countries = ref(null);
+	const fetchCountries = async () => {
+		const response = await fetch(
+			"https://ih-countries-api.herokuapp.com/countries"
+		);
+		const finalResponse = await response.json();
+		const sortedCountries = finalResponse.sort((a, b) => {
+			return a.name.common.localeCompare(b.name.common);
+		});
+		countries.value = sortedCountries;
+	};
+	fetchCountries();
 </script>
 
 <template>
@@ -18,8 +28,10 @@
 				<img :src="urlImg + country.alpha2Code.toLowerCase() + '.png'" />
 				<p>{{ country.name.common }}</p>
 			</router-link>
-			<router-view />
 		</div>
+	</div>
+	<div class="col-7">
+		<RouterView />
 	</div>
 </template>
 
